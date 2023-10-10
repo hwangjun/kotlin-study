@@ -1,0 +1,68 @@
+
+# 이슈 생성
+POST http://localhost:8080/api/v1/issues
+Content-Type: application/json
+
+{
+    "summary" : "테스트.,",
+    "description" : "테스트중",
+    "type" : "TASK",
+    "priority" : "LOW",
+    "status" : "TODO"
+}
+
+###
+# 이슈 생성
+POST http://localhost:8080/api/v1/issues
+Content-Type: application/json
+
+{
+"summary" : "테스트2.,",
+"description" : "테스트중2",
+"type" : "TASK",
+"priority" : "LOW",
+"status" : "TODO"
+}
+
+###
+# BUG 이슈 생성
+POST http://localhost:8080/api/v1/issues
+Content-Type: application/json
+
+{
+"summary" : "기준상품 등록 오류수정",
+"description" : "기준상품 등록시 간략설명 오류 수정",
+"type" : "BUG",
+"priority" : "HIGH",
+"status" : "IN_PROGRESS"
+}
+
+###
+# 이슈 전체 조회
+GET http://localhost:8080/api/v1/issues?status=IN_PROGRESS
+Content-Type: application/json
+
+
+###
+# 이슈 수정
+PUT http://localhost:8080/api/v1/issues/3
+Content-Type: application/json
+
+{
+  "summary" : "기준상품 등록 오류수정 진행중",
+  "description" : "기준상품 등록시 간략설명 오류 수정",
+  "type" : "BUG",
+  "priority" : "HIGH",
+  "status" : "RESOLVED"
+}
+
+###
+# ID로 이슈 한건 조회
+GET http://localhost:8080/api/v1/issues/1
+Content-Type: application/json
+
+
+###
+# ID로 이슈 삭제
+DELETE http://localhost:8080/api/v1/issues/3
+Content-Type: application/json
