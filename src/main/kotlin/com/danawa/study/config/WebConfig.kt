@@ -1,7 +1,6 @@
 package com.danawa.study.config
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.kotest.common.runBlocking
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.MethodParameter
 import org.springframework.stereotype.Component
