@@ -1,6 +1,5 @@
 package com.danawa.study.web
 
-import com.danawa.study.config.AuthUser
 import com.danawa.study.domain.enum.IssueStatus
 import com.danawa.study.model.IssueRequest
 import com.danawa.study.service.IssueService
@@ -15,33 +14,28 @@ class IssueController(
 
     @PostMapping
     fun create(
-        authUser: AuthUser,
         @RequestBody request: IssueRequest,
-    ) = issueService.create(authUser.userId, request)
+    ) = issueService.create(request)
 
     @GetMapping
     fun getAll(
-        authUser: AuthUser,
         @RequestParam(required = false, defaultValue = "TODO") status: IssueStatus,
     ) = issueService.getAll(status)
 
     @GetMapping("/{id}")
     fun get(
-        authUser: AuthUser,
         @PathVariable id: Long,
     ) = issueService.get(id)
 
     @PutMapping("/{id}")
     fun edit(
-        authUser: AuthUser,
         @PathVariable id: Long,
         @RequestBody request: IssueRequest,
-    ) = issueService.edit(authUser.userId, id, request)
+    ) = issueService.edit(id, request)
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun delete(
-        authUser: AuthUser,
         @PathVariable id: Long,
     ) {
         issueService.delete(id)

@@ -14,9 +14,6 @@ class Comment(
     val issue: Issue,
 
     @Column
-    val userId: Long,
-
-    @Column
     val username: String,
 
     @Column

@@ -4,6 +4,7 @@ POST http://localhost:8080/api/v1/issues
 Content-Type: application/json
 
 {
+    "username" : "황준",
     "summary" : "테스트.,",
     "description" : "테스트중",
     "type" : "TASK",
@@ -17,11 +18,12 @@ POST http://localhost:8080/api/v1/issues
 Content-Type: application/json
 
 {
-"summary" : "테스트2.,",
-"description" : "테스트중2",
-"type" : "TASK",
-"priority" : "LOW",
-"status" : "TODO"
+  "username" : "황준",
+  "summary" : "테스트2.,",
+  "description" : "테스트중2",
+  "type" : "TASK",
+  "priority" : "LOW",
+  "status" : "TODO"
 }
 
 ###
@@ -30,11 +32,12 @@ POST http://localhost:8080/api/v1/issues
 Content-Type: application/json
 
 {
-"summary" : "기준상품 등록 오류수정",
-"description" : "기준상품 등록시 간략설명 오류 수정",
-"type" : "BUG",
-"priority" : "HIGH",
-"status" : "IN_PROGRESS"
+  "username" : "황준",
+  "summary" : "기준상품 등록 오류수정",
+  "description" : "기준상품 등록시 간략설명 오류 수정",
+  "type" : "BUG",
+  "priority" : "HIGH",
+  "status" : "IN_PROGRESS"
 }
 
 ###
@@ -49,6 +52,7 @@ PUT http://localhost:8080/api/v1/issues/3
 Content-Type: application/json
 
 {
+  "username" : "황준",
   "summary" : "기준상품 등록 오류수정 진행중",
   "description" : "기준상품 등록시 간략설명 오류 수정",
   "type" : "BUG",

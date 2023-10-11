@@ -3,15 +3,17 @@ POST http://localhost:8080/api/v1/issues/1/comments
 Content-Type: application/json
 
 {
+    "username": "황준",
     "body":"23.10.09 기준상품 오류 수정"
 }
 
 ###
 #코맨트 수정
-PUT http://localhost:8080/api/v1/issues/1/comments/3
+PUT http://localhost:8080/api/v1/issues/1/comments/1
 Content-Type: application/json
 
 {
+  "username": "황준",
   "body":"23.10.09 기준상품 오류 수정 완료"
 }
 
@@ -19,3 +21,8 @@ Content-Type: application/json
 #코맨트 삭제
 DELETE http://localhost:8080/api/v1/issues/1/comments/1
 Content-Type: application/json
+
+{
+  "username": "황준",
+  "body":""
+}

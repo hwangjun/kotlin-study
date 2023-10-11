@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDateTime
 
 data class IssueRequest(
+    val username : String,
     val summary: String,
     val description: String,
     val type: IssueType,
@@ -18,10 +19,10 @@ data class IssueRequest(
 
 data class IssueResponse(
     val id: Long,
+    val username: String,
     val comments: List<CommentResponse> = emptyList(),
     val summary: String,
     val description: String,
-    val userId: Long,
     val type: IssueType,
     val priority: IssuePriority,
     val status: IssueStatus,
@@ -37,10 +38,10 @@ data class IssueResponse(
             with(issue) {
                 IssueResponse(
                     id = id!!,
+                    username = username,
                     comments = comments.sortedByDescending(Comment::id).map(Comment::toResponse),
                     summary = summary,
                     description = description,
-                    userId = userId,
                     type = type,
                     priority = priority,
                     status = status,

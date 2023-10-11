@@ -7,15 +7,16 @@ import jakarta.persistence.*
 
 @Entity
 @Table
-class Issue (
+class Issue(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
+
     @Column
-    var userId: Long,
+    var username : String,
 
     @OneToMany(fetch = FetchType.EAGER)
-    val comments : MutableList<Comment> = mutableListOf(),
+    val comments: MutableList<Comment> = mutableListOf(),
 
     @Column
     var summary: String,
@@ -35,4 +36,4 @@ class Issue (
     @Enumerated(EnumType.STRING)
     var status: IssueStatus
 
-    ) : BaseEntity()
+) : BaseEntity()

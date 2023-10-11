@@ -16,12 +16,12 @@ class IssueService(
 ) {
 
     @Transactional
-    fun create(userId: Long, request: IssueRequest) : IssueResponse {
+    fun create(request: IssueRequest) : IssueResponse {
 
         val issue = Issue(
+            username = request.username,
             summary = request.summary,
             description = request.description,
-            userId = userId,
             type = request.type,
             priority = request.priority,
             status = request.status,
@@ -41,13 +41,13 @@ class IssueService(
     }
 
     @Transactional
-    fun edit(userId: Long, id: Long, request: IssueRequest) : IssueResponse {
+    fun edit(id: Long, request: IssueRequest) : IssueResponse {
         val issue: Issue = issueRepository.findByIdOrNull(id) ?: throw NotFoundException("이슈가 존재하지 않습니다")
 
         return with(issue) {
+            username = request.username
             summary = request.summary
             description = request.description
-            this.userId = userId
             type  = request.type
             priority = request.priority
             status = request.status

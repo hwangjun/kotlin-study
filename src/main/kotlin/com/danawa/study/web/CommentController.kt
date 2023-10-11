@@ -1,6 +1,5 @@
 package com.danawa.study.web
 
-import com.danawa.study.config.AuthUser
 import com.danawa.study.model.CommentRequest
 import com.danawa.study.model.CommentResponse
 import com.danawa.study.service.CommentService
@@ -15,28 +14,26 @@ class CommentController(
 
     @PostMapping
     fun create(
-        authUser: AuthUser,
         @PathVariable issueId: Long,
         @RequestBody request: CommentRequest,
     ): CommentResponse {
-        return commentService.create(issueId, authUser.userId, authUser.username, request)
+        return commentService.create(issueId, request)
     }
 
     @PutMapping("/{id}")
     fun edit(
-        authUser: AuthUser,
         @PathVariable id: Long,
         @RequestBody request: CommentRequest,
-    ) = commentService.edit(id, authUser.userId, request)
+    ) = commentService.edit(id, request)
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun delete(
-        authUser: AuthUser,
         @PathVariable issueId: Long,
         @PathVariable id: Long,
+        @RequestBody request: CommentRequest,
     ) {
-        commentService.delete(issueId, id, authUser.userId)
+        commentService.delete(issueId, id, request)
     }
 
 }
